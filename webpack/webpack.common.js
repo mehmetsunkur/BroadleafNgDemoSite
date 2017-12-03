@@ -96,11 +96,13 @@ module.exports = (options) => {
                 { from: './src/main/webapp/manifest.webapp', to: 'manifest.webapp' },
                 // { from: './src/main/webapp/sw.js', to: 'sw.js' },
                 // jhipster-needle-add-assets-to-webpack - JHipster will add/remove third-party resources in this array
-                { from: './src/main/webapp/robots.txt', to: 'robots.txt' }
+                { from: './src/main/webapp/robots.txt', to: 'robots.txt' },
+                { from: './src/main/webapp/ngx-admin/assets', to: 'assets' }
             ]),
             new webpack.ProvidePlugin({
                 $: "jquery",
-                jQuery: "jquery"
+                jQuery: "jquery",
+                echarts: "echarts"
             }),
             new MergeJsonWebpackPlugin({
                 output: {
@@ -110,6 +112,12 @@ module.exports = (options) => {
                         // jhipster-needle-i18n-language-webpack - JHipster will add/remove languages in this array
                     ]
                 }
+            }),
+            new HtmlWebpackPlugin({
+                filename: 'ngx-admin.html',
+                template: './src/main/webapp/ngx-admin/index.html',
+                chunksSortMode: 'dependency',
+                inject: 'body'
             }),
             new HtmlWebpackPlugin({
                 template: './src/main/webapp/index.html',
