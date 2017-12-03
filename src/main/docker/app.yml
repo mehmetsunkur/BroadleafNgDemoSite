@@ -1,0 +1,14 @@
+version: '2'
+services:
+    broadleafngdemosite-app:
+        image: broadleafngdemosite
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://broadleafngdemosite-mysql:3306/broadleafngdemosite?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    broadleafngdemosite-mysql:
+        extends:
+            file: mysql.yml
+            service: broadleafngdemosite-mysql
