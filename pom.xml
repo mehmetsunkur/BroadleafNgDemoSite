@@ -85,8 +85,24 @@
         <!-- jhipster-needle-maven-property -->
     </properties>
 
+    <repositories>
+        <!-- jitpack repo to pull BL demo site dependency from github tag -->
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+            <!-- BL demo site dependency from github via jitpack-->
+                <groupId>com.github.BroadleafCommerce</groupId>
+                <artifactId>DemoSite</artifactId>
+                <version>broadleaf-5.2.2.1-GA</version>
+            </dependency>
+        
             <dependency>
                 <groupId>io.github.jhipster</groupId>
                 <artifactId>jhipster-dependencies</artifactId>
