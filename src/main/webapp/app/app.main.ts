@@ -2,6 +2,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { ProdConfig } from './blocks/config/prod.config';
 import { BroadleafNgDemoSiteAppModule } from './app.module';
 import { AppModule } from '../ngx-admin/app/app.module';
+import { BlAdminAppModule } from '../bl-admin/app/app.module';
 
 ProdConfig();
 
@@ -14,9 +15,13 @@ if(document.URL.indexOf('ngx-admin.html')>1){
     .then((success) => console.log(`Ngx-Admin Application started`))
     .catch((err) => console.error(err));
     
+}else if(document.URL.indexOf('admin.html')>1){
+    platformBrowserDynamic().bootstrapModule(BlAdminAppModule)
+    .then((success) => console.log(`Bl Admin Application started`))
+    .catch((err) => console.error(err));
 }else if(document.URL.indexOf('jhipster.html')>1){
     platformBrowserDynamic().bootstrapModule(BroadleafNgDemoSiteAppModule)
-    .then((success) => console.log(`Application started`))
+    .then((success) => console.log(`BL Ng Demo Application started`))
     .catch((err) => console.error(err));
 }
 else{
