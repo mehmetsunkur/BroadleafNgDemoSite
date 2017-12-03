@@ -120,6 +120,12 @@ module.exports = (options) => {
                 inject: 'body'
             }),
             new HtmlWebpackPlugin({
+                filename: 'admin.html',
+                template: './src/main/webapp/bl-admin/index.html',
+                chunksSortMode: 'dependency',
+                inject: 'body'
+            }),
+            new HtmlWebpackPlugin({
                 template: './src/main/webapp/index.html',
                 chunksSortMode: 'dependency',
                 inject: 'body'
